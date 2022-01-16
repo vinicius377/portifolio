@@ -1,0 +1,417 @@
+/*
+  Variables
+*/
+$primary-color: #282a36;
+$secundary-color: #6272a4;
+$nav-color: #c1c1c1;
+$font-color: #eeeeee;
+$margn-left-content: 40px;
+// Global syles
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+}
+body {
+  background: $primary-color;
+  min-height: 100vh;
+}
+/*
+  header styles
+*/
+header {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  position: fixed;
+  width: 100vw;
+  z-index: 100;
+  border-bottom: solid 2px rgba(0, 0, 0, 0.2);
+  nav {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 50px;
+    align-items: center;
+  }
+  img {
+    cursor: pointer;
+    transform: translateX(-70px);
+  }
+  .nav--container {
+    display: flex;
+    li {
+      list-style: none;
+    }
+    div {
+      padding: 20px 15px;
+      cursor: pointer;
+    }
+    div:hover {
+      backdrop-filter: brightness(1.2);
+    }
+    a {
+      height: 100%;
+      font-size: 1.2em;
+      color: $nav-color;
+      text-decoration: none;
+      font-weight: 700;
+    }
+  }
+  .nav--visible {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    img {
+      top: 0;
+      position: absolute;
+    }
+    .nav--container {
+      width: 100%;
+      flex-direction: column;
+      div {
+        justify-content: center;
+        display: flex;
+      }
+      a {
+        color: black;
+      }
+    }
+  }
+}
+
+/*
+  icon  hamburguer navigation
+*/
+.nav--ham {
+  padding: 10px;
+  margin: 8px 12px;
+  display: none;
+  cursor: pointer;
+  .nav--ham_bar {
+    background: rgb(15, 15, 15);
+    height: 5px;
+    width: 35px;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 8px;
+      background: rgb(15, 15, 15);
+      height: 5px;
+      width: 35px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      background: rgb(15, 15, 15);
+      height: 5px;
+      width: 35px;
+    }
+  }
+}
+/*
+ Section sobre
+ */
+
+.sobre {
+  display: flex;
+  max-width: 100vw;
+  height: 80vh;
+  transform: translateY(64px);
+
+  img {
+    object-fit: cover;
+    width: 80%;
+    max-width: calc(100vw - 280px);
+    height: 100%;
+    -webkit-mask-image: linear-gradient(to left, transparent 10%, black 50%);
+    filter: saturate(0.4);
+  }
+  .sobre--content {
+    color: $font-color;
+    padding-inline: 5%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 80px;
+    h1 {
+      margin-bottom: 20px;
+    }
+    p {
+      margin-left: 20px;
+    }
+  }
+}
+
+/*
+  more informations container
+*/
+.info--container {
+  position: relative;
+  z-index: 99;
+  background: $secundary-color;
+  border-radius: 40px 40px 0 0;
+  .info--content {
+    padding: 50px 7%;
+    h1 {
+      color: white;
+      letter-spacing: 0.6px;
+    }
+    h2,
+    p {
+      color: $font-color;
+    }
+  }
+}
+/*
+  section skills
+*/
+.skills {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  padding-bottom: 50px;
+  border-bottom: solid 1px rgba(75, 75, 75, 0.7);
+  div {
+    margin-bottom: 15px;
+  }
+  .tech--icon {
+    margin: 10px $margn-left-content;
+    gap: 15px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+
+    img {
+      width: 60px;
+      filter: saturate(0);
+      transition: 0.4s;
+      cursor: help;
+      &:hover {
+        transform: scale(1.1);
+        filter: saturate(1);
+      }
+    }
+  }
+  .tech--info {
+    margin-top: 50px;
+    flex: 1;
+    border-radius: 0 8px 8px 8px;
+    transform: translateX(100vw);
+    background: $primary-color;
+    box-shadow: -3px 3px 2px 0 $secundary-color,
+      -10px 10px 10px 0 rgba(0, 0, 0, 0.5);
+    transition: 1s;
+
+    .tech--content {
+      padding: 40px $margn-left-content;
+      h1 {
+        margin-bottom: 20px;
+        font-size: 1.4rem;
+      }
+      p {
+        font-size: 1rem;
+        margin-left: 20px;
+      }
+    }
+  }
+}
+/*
+  formção section
+*/
+.formacao {
+  margin-top: 50px;
+  .formacao--container {
+    border-bottom: solid 1px rgba(75, 75, 75, 0.7);
+    padding: 2%;
+    overflow: hidden;
+    margin: 20px 30px;
+    .formacao--item {
+      background: $primary-color;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      border-radius: 0 8px 8px 8px;
+      box-shadow: -1.5px 1.5px 1px 0 $secundary-color,
+        -6px 6px 6px 0 rgba(0, 0, 0, 0.5);
+      margin-block: 15px;
+      transition: 1s 0.5s;
+      transform: translateY(-200px);
+      span {
+        color: #36ba7b;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
+      .cursando {
+        color: #49b3e0;
+      }
+    }
+  }
+}
+/*
+  repositories section
+*/
+.repositores {
+  display: grid;
+  width: 100%;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  margin-block: 15px;
+  .repositores--item {
+    height: 400px;
+    position: relative;
+    cursor: pointer;
+    object-position: 100%;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.02);
+    }
+    img {
+      box-shadow: 6px 6px 5px 0 rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+      object-fit: cover;
+      object-position: 50%;
+      width: 100%;
+      height: 100%;
+      transition: 6s 0.4s ease-out;
+
+      &:hover {
+        object-position: right;
+      }
+    }
+    .repositores--description {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding-block: 30px;
+
+      background: linear-gradient(transparent, black);
+      border-radius: 0 0 10px 10px;
+      span {
+        margin-inline: 15px;
+        font-size: 1.25em;
+
+        letter-spacing: 1px;
+        color: $font-color;
+      }
+    }
+  }
+}
+
+/*
+contact section
+*/
+.contact {
+  opacity: 0;
+  &.active {
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    color: $font-color;
+    margin: 20px auto;
+    overflow: hidden;
+    position: relative;
+    .contact--title {
+      position: absolute;
+      span {
+        transition: 1s;
+        opacity: 0;
+        font-size: 1.6em;
+
+        &.fade {
+          opacity: 1;
+        }
+      }
+      &.dashLeft {
+        transition: 1s;
+        transform: translateX(100vw);
+      }
+    }
+    .social {
+      display: block;
+      &.active {
+        img {
+          opacity: 1;
+          transition: 1s 0.2s;
+        }
+      }
+      img {
+        cursor: pointer;
+        margin-inline: 10px;
+        opacity: 0;
+        width: 40px;
+      }
+    }
+  }
+}
+/*
+  class animates
+*/
+.activeIcon {
+  animation: 1s smoothInfo linear;
+}
+.lazyLoadingIcon {
+  animation: 1s lazyLoadingIcon;
+}
+.lazyLoadingInfo {
+  animation: 1s lazyLoadingInfo ease-in-out forwards;
+}
+/*
+keyframes animate
+*/
+@keyframes lazyLoadingInfo {
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes lazyLoadingIcon {
+  0% {
+    transform: scale(0);
+  }
+  60% {
+    filter: saturate(1);
+    transform: scale(1.2);
+  }
+  100% {
+    filter: saturate(0);
+    transform: scale(1);
+  }
+}
+@keyframes smoothInfo {
+  0% {
+    filter: blur(0px);
+  }
+  45% {
+    filter: blur(10px);
+  }
+  100% {
+    filter: blur(0px);
+  }
+}
+/*
+  media queriese
+*/
+@media (max-width: 900px) {
+  .skills {
+    flex-direction: column;
+  }
+  .skills .tech--icon {
+    display: flex;
+  }
+}
+@media (max-width: 750px) {
+  header nav {
+    display: none;
+  }
+  .nav--ham {
+    display: block;
+  }
+  .sobre {
+    transform: translateY(43px);
+  }
+}
