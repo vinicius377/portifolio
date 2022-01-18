@@ -10,15 +10,36 @@ let infoTech = {
  * obj informations of all tech
  */
 const informations = {
-  react: {
+  reactjs: {
     title: "ReactJS",
     descript:
       "O React é a biblioteca mais popular do JavaScript e é usada para construir uma interface de usuário (IU). Ela oferece uma resposta excelente para o usuário adicionar comandos usando um novo método de renderizar sites.",
   },
-  sass: { title: "SASS", descript: "SASS info" },
-  html: { title: "HTML", descript: " HTML info" },
-  css: { title: "CSS", descript: "CSS info" },
-  javascript: { title: "Javascript", descript: "JS info" },
+  sass: {
+    title: "SASS",
+    descript:
+      "Com o SASS, é muito mais fácil desenvolver um projeto grande e não se perder no meio de tanto código.A ideia é manter a mesma lógica do CSS (seletores, regras etc), mas de uma maneira mais organizada, intuitiva e com trechos de código facilmente reutilizáveis.",
+  },
+  html: {
+    title: "HTML",
+    descript:
+      " A Linguagem de Marcação de Hipertexto (HTML) é uma linguagem de computador que compõe a maior parte das páginas da internet e dos aplicativos online. Um hipertexto é um texto usado para fazer referência a outros textos, enquanto uma linguagem de marcação é composta por uma série de marcações que dizem para os servidores da web qual é o estilo e a estrutura de um documento.",
+  },
+  css: {
+    title: "CSS",
+    descript:
+      "O CSS separa o conteúdo da representação visual do site. Pense  na decoração da sua página. Utilizando o CSS é possível alterar a cor do texto e do fundo, fonte e espaçamento entre parágrafos. Também pode criar tabelas, usar variações de layouts, ajustar imagens para suas respectivas telas e assim por diante.",
+  },
+  javascript: {
+    title: "Javascript",
+    descript:
+      "A linguagem de programação Javascript permite ao desenvolvedor implementar diversos itens de alto nível de complexidade em páginas web, como animações, mapas, gráficos ou informações que se atualizam em intervalos de tempo padrão, por exemplo.",
+  },
+  vuejs: {
+    title: "VueJS",
+    descript:
+      "Vue JS é muito utilizado para criar aplicações single page (página única) e também para desenvolver vários tipos de interfaces, que possuem necessidades de maior interação e experiência mais valorosa para o usuário.",
+  },
 }
 
 const toggleClass = () => {
@@ -32,6 +53,7 @@ const changeTechInfo = e => {
   const { title, descript } = informations[nameTeach]
   toggleClass()
   setTimeout(() => {
+    infoTech.title.className = title.toLowerCase()
     infoTech.title.innerHTML = title
     infoTech.descript.innerHTML = descript
   }, 450)
@@ -136,3 +158,19 @@ window.addEventListener("resize", () => {
     nav.classList.remove("nav--visible")
   }
 })
+
+/**
+ * acessibility
+ */
+iconSkills.forEach(icon => {
+  icon.addEventListener("focus", e => {
+    changeTechInfo(e)
+  })
+  icon.addEventListener("keyup", e => {
+    if (e.key == "Enter") {
+      infoTech.descript.focus()
+    }
+  })
+})
+iconSkills[0].addEventListener("focus", () => window.scroll(0, 200))
+formItem[0].addEventListener("focus", e => window.scroll(0, 200))

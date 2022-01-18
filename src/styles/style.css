@@ -116,6 +116,7 @@ header .nav--visible .nav--container a {
   max-width: 100vw;
   height: 80vh;
   transform: translateY(64px);
+  justify-content: space-between;
 }
 .sobre img {
   object-fit: cover;
@@ -135,8 +136,10 @@ header .nav--visible .nav--container a {
 }
 .sobre .sobre--content h1 {
   margin-bottom: 20px;
+  font-size: 1.4em;
 }
 .sobre .sobre--content p {
+  font-size: 1.1em;
   margin-left: 20px;
 }
 
@@ -182,7 +185,9 @@ header .nav--visible .nav--container a {
   grid-template-columns: 1fr 1fr;
 }
 .skills .tech--icon img {
+  max-width: 60px;
   width: 60px;
+  min-width: 40px;
   filter: saturate(0);
   transition: 0.4s;
   cursor: help;
@@ -211,6 +216,66 @@ header .nav--visible .nav--container a {
   font-size: 1rem;
   margin-left: 20px;
 }
+.skills .tech--info .tech--content .reactjs {
+  color: #bd93f9;
+}
+.skills .tech--info .tech--content .reactjs::after {
+  content: " />";
+  color: #f8f8f2;
+}
+.skills .tech--info .tech--content .reactjs::before {
+  content: "<";
+  color: #f8f8f2;
+}
+.skills .tech--info .tech--content .vuejs {
+  color: #bd93f9;
+}
+.skills .tech--info .tech--content .vuejs::after {
+  content: " />";
+  color: #f8f8f2;
+}
+.skills .tech--info .tech--content .vuejs::before {
+  content: "<";
+  color: #f8f8f2;
+}
+.skills .tech--info .tech--content .css {
+  color: #50fa7b;
+}
+.skills .tech--info .tech--content .css::after {
+  content: " {";
+  color: #f1fa8c;
+}
+.skills .tech--info .tech--content .css::before {
+  content: ".";
+}
+.skills .tech--info .tech--content .sass {
+  color: #50fa7b;
+}
+.skills .tech--info .tech--content .sass::after {
+  content: " {";
+  color: #f1fa8c;
+}
+.skills .tech--info .tech--content .sass::before {
+  content: ".";
+}
+.skills .tech--info .tech--content .javascript {
+  color: #50fa7b;
+}
+.skills .tech--info .tech--content .javascript::after {
+  content: "()";
+  color: #6272a4;
+}
+.skills .tech--info .tech--content .html {
+  color: #ff79c6;
+}
+.skills .tech--info .tech--content .html::after {
+  content: " />";
+  color: #f8f8f2;
+}
+.skills .tech--info .tech--content .html::before {
+  content: "<";
+  color: #f8f8f2;
+}
 
 /*
   formção section
@@ -222,7 +287,7 @@ header .nav--visible .nav--container a {
   border-bottom: solid 1px rgba(75, 75, 75, 0.7);
   padding: 2%;
   overflow: hidden;
-  margin: 20px 30px;
+  margin: 0 30px;
 }
 .formacao .formacao--container .formacao--item {
   background: #282a36;
@@ -257,7 +322,7 @@ header .nav--visible .nav--container a {
   margin-block: 15px;
 }
 .repositores .repositores--item {
-  height: 400px;
+  height: 350px;
   position: relative;
   cursor: pointer;
   object-position: 100%;
@@ -270,13 +335,13 @@ header .nav--visible .nav--container a {
   box-shadow: 6px 6px 5px 0 rgba(0, 0, 0, 0.4);
   border-radius: 10px;
   object-fit: cover;
-  object-position: 50%;
+  object-position: 20%;
   width: 100%;
   height: 100%;
   transition: 6s 0.4s ease-out;
 }
 .repositores .repositores--item img:hover {
-  object-position: right;
+  object-position: 80%;
 }
 .repositores .repositores--item .repositores--description {
   position: absolute;
@@ -316,7 +381,7 @@ contact section
 .contact.active .contact--title span {
   transition: 1s;
   opacity: 0;
-  font-size: 1.6em;
+  font-size: 1.6rem;
 }
 .contact.active .contact--title span.fade {
   opacity: 1;
@@ -396,9 +461,23 @@ keyframes animate
 
   .skills .tech--icon {
     display: flex;
+    flex-wrap: wrap;
+  }
+
+  .sobre .sobre--content p {
+    font-size: 1em;
   }
 }
 @media (max-width: 750px) {
+  main h1,
+.sobre .sobre--content h1 {
+    font-size: 1.2em;
+  }
+
+  header {
+    backdrop-filter: blur(15px);
+  }
+
   header nav {
     display: none;
   }
@@ -407,8 +486,61 @@ keyframes animate
     display: block;
   }
 
+  .nav--container {
+    margin-top: 7px;
+    align-self: flex-start;
+  }
+
   .sobre {
     transform: translateY(43px);
+  }
+
+  .formacao .formacao--container {
+    margin: 0;
+  }
+
+  .info--container .info--content {
+    padding: 50px 3%;
+  }
+
+  .repositores .repositores--item {
+    height: 300px;
+  }
+
+  .sobre {
+    height: 60vh;
+  }
+}
+@media (max-width: 525px) {
+  .contact.active .contact--title span {
+    font-size: 1.4em;
+  }
+
+  .skills .tech--info .tech--content h1 {
+    font-size: 1.2em;
+  }
+
+  .skills .tech--info .tech--content p {
+    font-size: 0.9em;
+  }
+
+  .formacao .formacao--container .formacao--item h2 {
+    font-size: 1em;
+  }
+  .formacao .formacao--container .formacao--item span {
+    font-size: 0.9em;
+  }
+
+  .sobre .sobre--content {
+    font-size: 0.9em;
+  }
+
+  .repositores {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .repositores .repositores--item {
+    height: 270px;
   }
 }
 
