@@ -158,6 +158,7 @@ linksNav.forEach(link => {
 window.addEventListener("resize", () => {
   if (window.innerWidth >= 750) {
     nav.classList.remove("nav--visible")
+    hamNav.classList.remove("animateToggle")
   }
 })
 
