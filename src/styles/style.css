@@ -81,17 +81,19 @@ header .nav--visible .nav--container a {
 */
 .nav--ham {
   padding: 10px;
-  margin: 8px 12px;
+  margin: 10px 12px;
   display: none;
   cursor: pointer;
 }
 .nav--ham .nav--ham_bar {
+  transition: 0.3s;
   background: #0f0f0f;
   height: 5px;
   width: 35px;
   position: relative;
 }
 .nav--ham .nav--ham_bar::after {
+  transition: 0.3s;
   content: "";
   position: absolute;
   bottom: 8px;
@@ -100,12 +102,27 @@ header .nav--visible .nav--container a {
   width: 35px;
 }
 .nav--ham .nav--ham_bar::before {
+  transition: 0.3s;
   content: "";
   position: absolute;
   top: 8px;
   background: #0f0f0f;
   height: 5px;
   width: 35px;
+}
+.nav--ham.animateToggle .nav--ham_bar {
+  transition: 0.1s 0.3s;
+  transform: rotate(45deg);
+}
+.nav--ham.animateToggle .nav--ham_bar::after {
+  transition: 0.1s bottom, 0.1s 0.3s transform;
+  bottom: 0;
+  transform: rotate(90deg);
+}
+.nav--ham.animateToggle .nav--ham_bar::before {
+  opacity: 0;
+  top: 0;
+  transition: 0.1s;
 }
 
 /*

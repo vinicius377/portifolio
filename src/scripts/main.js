@@ -143,11 +143,13 @@ const nav = document.querySelector("nav")
 const hamNav = document.querySelector(".nav--ham")
 hamNav.addEventListener("click", () => {
   nav.classList.toggle("nav--visible")
+  hamNav.classList.toggle("animateToggle")
 })
 const linksNav = document.querySelectorAll("nav li")
 linksNav.forEach(link => {
   link.addEventListener("click", () => {
     nav.classList.remove("nav--visible")
+    hamNav.classList.remove("animateToggle")
   })
 })
 /**
@@ -162,15 +164,23 @@ window.addEventListener("resize", () => {
 /**
  * acessibility
  */
-iconSkills.forEach(icon => {
+let currentFocusTech = 0
+iconSkills.forEach((icon, index) => {
   icon.addEventListener("focus", e => {
     changeTechInfo(e)
   })
-  icon.addEventListener("keyup", e => {
-    if (e.key == "Enter") {
+  icon.addEventListener("keyup", ({ key }) => {
+    if (key === "Enter" || key === "ArrowRight") {
       infoTech.descript.focus()
+      currentFocusTech = index
     }
   })
+})
+
+infoTech.descript.addEventListener("keyup", ({ key }) => {
+  if (key === "ArrowLeft" || key === "Enter") {
+    iconSkills[currentFocusTech].focus()
+  }
 })
 iconSkills[0].addEventListener("focus", () => window.scroll(0, 200))
 formItem[0].addEventListener("focus", e => window.scroll(0, 200))
