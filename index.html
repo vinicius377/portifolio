@@ -29,21 +29,21 @@
       <nav>
         <ul class="nav--container" role="navigation">
           <li role="menuitem">
-               <a href="#sobre" >
+               <a href="#sobre"  >
             <div>
            Sobre
             </div>
             </a>
           </li >
           <li role="menuitem">
-            <a href="#skills">
+            <a id="skill--nav">
             <div>
               Skills
             </div>
             </a>
           </li>
           <li role="menuitem">
-            <a href="#formacoes">
+            <a id="formacao--nav">
             <div>
               Formação
             </div>
@@ -63,18 +63,22 @@
         </a>
       </nav>
     </header>
-    <main>
+    <main id="content">
       <!-- 
        -->
       <section class="sobre" id="sobre" aria-label="Sobre" role="presentation">
         <img
-          src="./src/assets/128579392_207182870978001_5776225196014815370_n.jpg"
+          src="./src/assets/profile2.jpg"
           alt="perfil"
+          id="profile"
         />
         <div class="sobre--content">
           <h1 >Sobre</h1>
           <p tabindex="0">
-           Olá, meu nome é Vinicius e sou um apaixonado por tecnologia ❤. Estou trilhando na área de desenvolvimento Web e procuro oportunidades que me façam crescer como profissional. O que mais me apaixona na área de tecnologia é que tem sempre algo novo para aprender.
+           Olá, meu nome é Vinicius, tenho 20 anos e sou do interior do Ceará 🌵. Tenho <b>1 ano</b> de experência na área de desenvolvimento web, o <b>Front-end</b>, mas sempre estou aberto a conhecer novas áreas no mundo da tecnologia 💻.
+          </p>
+          <p style="margin-top: 0.5rem">
+            Sempre busco estar atualizado sobre as novidades e tendências que aparecem na área de tecnologia, sempre que possível aplicando as melhores práticas e convenções usadas no mercado.
           </p>
         </div>
       </section>
@@ -121,8 +125,9 @@
                   tabindex="0"
                   aria-label="reactjs"
                 />
-                <img   data-src="./src/assets/vuejs-original.svg"
-                  name="vuejs"
+                <img   
+                data-src="./src/assets/vuejs-original.svg"
+                name="vuejs"
                 draggable="false"
                 tabindex="0"
                 aria-label="vuejs"
@@ -131,8 +136,9 @@
             </div>
             <div class="tech--info">
               <div class="tech--content">
-                <h1 >Passe o mouse em alguma tecnologia ao lado</h1>
-                <p  tabindex="0"></p>
+                <h1 id="default-text">Clique em alguma tecnologia ao lado</h1>
+                <p tabindex="0"></p>
+                <h1 id="tech--content-after"></p>
               </div>
             </div>
           </section>

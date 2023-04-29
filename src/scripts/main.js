@@ -1,9 +1,21 @@
 const iconSkills = document.querySelectorAll(".tech--icon img")
 let containerInfo = document.querySelector(".tech--info")
 const formItem = document.querySelectorAll(".formacao--item")
+
 let infoTech = {
   title: document.querySelector(".tech--content h1"),
   descript: document.querySelector(".tech--content p"),
+  titleAfter: document.querySelector("#tech--content-after"),
+}
+
+document.querySelector("#skill--nav").onclick = () => {
+  const sobreContent = document.querySelector("#skills")
+  sobreContent.scrollIntoView({ block: "center", behavior: "smooth" })
+}
+
+document.querySelector("#formacao--nav").onclick = () => {
+  const sobreContent = document.querySelector("#formacoes")
+  sobreContent.scrollIntoView({ block: "center", behavior: "smooth" })
 }
 
 /**
@@ -42,8 +54,34 @@ const informations = {
   },
 }
 
-const toggleClass = () => {
-  containerInfo.firstElementChild.classList.toggle("activeIcon")
+const defualtText = document.getElementById("default-text")
+const isMobile = window.innerWidth < 900
+
+const handleDefaultText = () => {
+  if (isMobile) {
+    defualtText.innerHTML = "Clique em alguma tecnologia em cima"
+  } else {
+    defualtText.innerHTML = "Clique em alguma tecnologia ao lado"
+  }
+}
+
+let currentIconActive
+
+const toggleClass = e => {
+  containerInfo.firstElementChild.classList.add("activeIcon")
+  e.target.classList.toggle("activeIcon")
+
+  if (currentIconActive) {
+    currentIconActive.target.classList.remove("activeIcon")
+  } else {
+    handleDefaultText()
+  }
+
+  if (e.target.classList.contains("activeIcon")) currentIconActive = e
+
+  setTimeout(() => {
+    containerInfo.firstElementChild.classList.remove("activeIcon")
+  }, 1000)
 }
 /**
  *
@@ -51,11 +89,21 @@ const toggleClass = () => {
 const changeTechInfo = e => {
   const nameTeach = e.target.getAttribute("name")
   const { title, descript } = informations[nameTeach]
-  toggleClass()
+  const titleNoHasAfterContent = ["sass", "css", "javascript"]
+
+  toggleClass(e)
   setTimeout(() => {
     infoTech.title.className = title.toLowerCase()
     infoTech.title.innerHTML = title
     infoTech.descript.innerHTML = descript
+
+    infoTech.titleAfter.className = `${title.toLowerCase()} content-after`
+
+    if (titleNoHasAfterContent.includes(nameTeach)) {
+      infoTech.titleAfter.innerHTML = ""
+    } else {
+      infoTech.titleAfter.innerHTML = title
+    }
   }, 450)
 }
 
@@ -63,10 +111,7 @@ const changeTechInfo = e => {
  * Ad event for all icons
  */
 iconSkills.forEach(icon => {
-  icon.addEventListener("mouseover", changeTechInfo)
-})
-iconSkills.forEach(icon => {
-  icon.addEventListener("mouseout", toggleClass)
+  icon.addEventListener("click", changeTechInfo)
 })
 
 /**
@@ -141,7 +186,14 @@ document.querySelector("#email").onclick = function () {
  */
 const nav = document.querySelector("nav")
 const hamNav = document.querySelector(".nav--ham")
+
 hamNav.addEventListener("click", () => {
+  if (nav.classList.contains("nav--visible")) {
+    document.body.style.overflow = "auto"
+  } else {
+    document.body.style.overflow = "hidden"
+  }
+
   nav.classList.toggle("nav--visible")
   hamNav.classList.toggle("animateToggle")
 })
@@ -151,6 +203,18 @@ linksNav.forEach(link => {
     nav.classList.remove("nav--visible")
     hamNav.classList.remove("animateToggle")
   })
+})
+
+const contentContainer = document.getElementById("content")
+const about = document.getElementById("sobre")
+const hamNavBar = document.querySelector(".nav--ham_bar")
+
+window.addEventListener("scroll", e => {
+  if (contentContainer.getBoundingClientRect().top < -64) {
+    document.documentElement.style.setProperty("--textNav-color", "#000")
+  } else {
+    document.documentElement.style.setProperty("--textNav-color", "#fcfcfc")
+  }
 })
 /**
  * remove class nav--visible if width>700px and  nav--visible  yet exist
@@ -167,9 +231,6 @@ window.addEventListener("resize", () => {
  */
 let currentFocusTech = 0
 iconSkills.forEach((icon, index) => {
-  icon.addEventListener("focus", e => {
-    changeTechInfo(e)
-  })
   icon.addEventListener("keyup", ({ key }) => {
     if (key === "Enter" || key === "ArrowRight") {
       infoTech.descript.focus()
@@ -185,3 +246,22 @@ infoTech.descript.addEventListener("keyup", ({ key }) => {
 })
 iconSkills[0].addEventListener("focus", () => window.scroll(0, 200))
 formItem[0].addEventListener("focus", e => window.scroll(0, 200))
+
+/**
+ * Random profile image
+ */
+
+const image = document.getElementById("profile")
+const currentImage = Math.floor(Math.random() * 2)
+const assetRoot = "./src/assets/"
+
+switch (currentImage) {
+  case 0:
+    image.src = assetRoot + "profile1.jpeg"
+    break
+  case 1:
+    image.src = assetRoot + "profile2.jpeg"
+    break
+  default:
+    image.src = assetRoot + "profile2.jpeg"
+}
