@@ -565,7 +565,7 @@ keyframes animate
     margin-top: 1.5rem;
   }
   .sobre {
-    height: 16rem;
+    height: 18rem;
   }
   .sobre img {
     display: none;
@@ -573,6 +573,9 @@ keyframes animate
   }
   .sobre .sobre--content {
     margin-bottom: 3rem;
+  }
+  .sobre .sobre--content p {
+    margin-left: 0;
   }
   .skills .tech--info {
     margin-top: 0;
