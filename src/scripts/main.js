@@ -118,6 +118,7 @@ iconSkills.forEach(icon => {
  * lazing load
  */
 const contact = document.getElementById("contato")
+
 const lazyLoading = () => {
   iconSkills.forEach(icon => {
     if (icon.getBoundingClientRect().top < window.innerHeight - 80) {
@@ -139,7 +140,25 @@ const lazyLoading = () => {
     contactAnimate()
   }
 }
-window.addEventListener("scroll", lazyLoading)
+
+if (isMobile) {
+  contact.classList.add("active")
+  contactAnimate()
+
+  formItem.forEach(item => {
+    item.style.transform = "translateY(0)"
+  })
+
+  iconSkills.forEach(icon => {
+    icon.classList.add("lazyLoadingIcon")
+    const src = icon.getAttribute("data-src")
+    icon.src = src
+  })
+
+  containerInfo.classList.add("lazyLoadingInfo")
+} else {
+  window.addEventListener("scroll", lazyLoading)
+}
 
 /**
  * contact animation
