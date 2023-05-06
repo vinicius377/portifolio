@@ -353,9 +353,10 @@ header .nav--visible .nav--container a {
 }
 .formacao .formacao--container .formacao--item span {
   color: #36ba7b;
+  font-size: 1rem;
 }
 .formacao .formacao--container .formacao--item h2 {
-  font-size: 1.2em;
+  font-size: 1.125em;
 }
 .formacao .formacao--container .formacao--item .cursando {
   color: #49b3e0;

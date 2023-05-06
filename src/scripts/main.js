@@ -58,12 +58,14 @@ const defualtText = document.getElementById("default-text")
 const isMobile = window.innerWidth < 900
 
 const handleDefaultText = () => {
+  // console.log()
   if (isMobile) {
     defualtText.innerHTML = "Clique em alguma tecnologia em cima"
   } else {
     defualtText.innerHTML = "Clique em alguma tecnologia ao lado"
   }
 }
+handleDefaultText()
 
 let currentIconActive
 
@@ -220,6 +222,7 @@ const linksNav = document.querySelectorAll("nav li")
 linksNav.forEach(link => {
   link.addEventListener("click", () => {
     nav.classList.remove("nav--visible")
+    document.body.style.overflow = "auto"
     hamNav.classList.remove("animateToggle")
   })
 })
