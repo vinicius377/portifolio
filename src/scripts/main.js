@@ -1,6 +1,6 @@
 const iconSkills = document.querySelectorAll(".tech--icon img")
 let containerInfo = document.querySelector(".tech--info")
-const formItem = document.querySelectorAll(".formacao--item")
+const formItem = [...document.querySelectorAll(".formacao--item"), ...document.querySelectorAll(".experience--item")]
 
 let infoTech = {
   title: document.querySelector(".tech--content h1"),
@@ -15,6 +15,11 @@ document.querySelector("#skill--nav").onclick = () => {
 
 document.querySelector("#formacao--nav").onclick = () => {
   const sobreContent = document.querySelector("#formacoes")
+  sobreContent.scrollIntoView({ block: "center", behavior: "smooth" })
+}
+
+document.querySelector("#experiencias--nav").onclick = () => {
+  const sobreContent = document.querySelector("#experiencias")
   sobreContent.scrollIntoView({ block: "center", behavior: "smooth" })
 }
 
@@ -287,3 +292,15 @@ switch (currentImage) {
   default:
     image.src = assetRoot + "profile2.jpeg"
 }
+
+const expandButtons = Array.from(document.getElementsByClassName('experiencia_expandir'));
+const experienceContents = Array.from(document.getElementsByClassName('experiencia_conteudo')) 
+
+expandButtons.forEach(button => button.addEventListener('click', () => {
+  const contentId = button.dataset.experienceIndex;
+  const contentContainerToOpen = document.getElementById(contentId); 
+  experienceContents.forEach(content => {
+    if (content.id !== contentId) content.classList.remove('opened')
+  });
+  contentContainerToOpen.classList.toggle('opened');
+}))
