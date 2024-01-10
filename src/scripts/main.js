@@ -287,5 +287,3 @@ switch (currentImage) {
   default:
     image.src = assetRoot + "profile2.jpeg"
 }
-
-localStorage["teste"].setItem("testando", "aaaaaa")
