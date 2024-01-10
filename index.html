@@ -54,6 +54,14 @@
             </a>
           </li>
           <li role="menuitem">
+            <a id="experiencias--nav">
+            <div>
+              Experiencias
+            </div>
+            </a>
+            </a>
+          </li>
+          <li role="menuitem">
             <a href="#contato">
             <div>
             Contato
@@ -151,31 +159,77 @@
             <h1>Formação</h1>
             <div class="formacao--container">
               <div class="formacao--item" tabindex="0">
-                <h2  tabindex="-1">Tecnico em informatica</h2>
-                <span  tabindex="-1">Concluido</span>
+                <h2  tabindex="-1">Técnico em informatica</h2>
+                <span  tabindex="-1">Concluído</span>
               </div>
               <div class="formacao--item"  tabindex="0">
                 <h2  tabindex="-1">Formação jovem empreendedor</h2>
-                <span tabindex="-1">Concluido</span>
+                <span tabindex="-1">Concluído</span>
               </div>
               <div class="formacao--item"  tabindex="0">
                 <h2 tabindex="-1">Análise e desenvolvimento de sistemas</h2>
-                <span class="cursando" tabindex="-1">Cursando</span>
+                <span tabindex="-1">Concluído</span>
               </div>
             </div>
           </section>
           <!--             
            -->
-           <section class="formacao" id="formacoes" aria-label="formações">
+           <section class="formacao" id="experiencias" aria-label="formações">
             <h1>Experiências</h1>
             <div class="formacao--container">
-              <div class="formacao--item" tabindex="0">
-                <h2 tabindex="-1">Desenvolvimento de Software na <strong>Frexco</strong></h2>
-                <h2 tabindex="-1">1 ano e 8 meses</h2>
+              <div>
+                <div class="experience--item" tabindex="0">
+                  <div class="experience--item_conteudo">
+                    <h2 tabindex="-1">Desenvolvimento de Software na <strong>Frexco</strong></h2>
+                    <div class="experiencia_tempo">
+                      <h2 tabindex="-1">1 ano e 8 meses</h2>
+                    </div>
+                    
+                  </div>
+                  <button class="experiencia_expandir" data-experience-index="content-1">
+                    <i data-lucide="chevron-down"></i>
+                  </button>
+                </div>
+                <div class="experiencia_conteudo" id="content-1">
+                  <div style="padding: 1rem;">
+                    <div>
+                      <h4>FRONT END</h4>
+                      <p>
+                        Desenvolvimento de novas features tanto para a loja como para os sistemas
+                        operacionais da empresa. Algumas das tecnologias utilizadas são: ReactJS, Typescript,
+                        Styled-components, Redux.
+                      </p>
+                    </div>
+                    <div style="margin-top: 1rem">
+                      <h4>BACK END</h4>
+                      <p>
+                        Desenvolvimento de novas features utilizando a arquitetura de micro-serviços. Algumas
+                      das tecnologias utilizadas são: NestJS, Typescript, MongoDB, Postgres, Knex.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="formacao--item"  tabindex="0">
-                <h2 tabindex="-1">Estagiário de redes na InforLink Bandar Larga</h2>
-                <h2 tabindex="-1">1 ano</h2>
+
+              <div style="margin-top: 1rem">
+                <div class="experience--item"  tabindex="0">
+                  <div class="experience--item_conteudo">
+                    <h2 tabindex="-1">Estagiário de redes na InforLink Banda Larga</h2>
+                    <div class="experiencia_tempo">
+                      <h2 tabindex="-1">1 ano</h2>
+                    </div>
+                    
+                  </div>
+                  <button class="experiencia_expandir" data-experience-index="content-2"> 
+                    <i data-lucide="chevron-down"></i>
+                  </button>
+                </div>
+                <div class="experiencia_conteudo" id="content-2">
+                  <div style="padding: 1rem;">
+                      <p>Auxiliar os profissionais da empresa na instalação de novas linhas de internet,
+                        configuração de roteadores e no atendimento de clientes no escritório.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -252,5 +306,9 @@
         </div>
       </section>
     </main>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+      lucide.createIcons()
+  </script>
   </body>
 </html>
