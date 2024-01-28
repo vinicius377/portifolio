@@ -63,7 +63,6 @@ const defualtText = document.getElementById("default-text")
 const isMobile = window.innerWidth < 900
 
 const handleDefaultText = () => {
-  // console.log()
   if (isMobile) {
     defualtText.innerHTML = "Clique em alguma tecnologia em cima"
   } else {
@@ -154,7 +153,7 @@ if (isMobile) {
 
   formItem.forEach(item => {
     item.style.transform = "translateY(0)"
-  })
+ })
 
   iconSkills.forEach(icon => {
     icon.classList.add("lazyLoadingIcon")
@@ -294,7 +293,7 @@ switch (currentImage) {
 }
 
 const expandButtons = Array.from(document.getElementsByClassName('experiencia_expandir'));
-const experienceContents = Array.from(document.getElementsByClassName('experiencia_conteudo')) 
+const experienceContents = Array.from(document.getElementsByClassName('experiencia_conteudo')); 
 
 expandButtons.forEach(button => button.addEventListener('click', () => {
   const contentId = button.dataset.experienceIndex;
